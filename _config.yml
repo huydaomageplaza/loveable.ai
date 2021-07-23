@@ -29,7 +29,11 @@ plugins:
   - jekyll-redirect-from
   - jekyll-paginate
 include: [".htaccess", "LICENSE.txt", "*.woff", "*.ttf", "*.json"]
-exclude: ["_site", lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "vendor", "shell", ".keep", "note.xml", "templates", "private"]
+exclude: ["_site", lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "vendor", "shell", ".keep", "note.xml", "templates", "private",
+"static",
+"*.sh",
+".yml"
+]
 collections:
   pages:
     output: true
