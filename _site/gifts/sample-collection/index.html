@@ -1,12 +1,8 @@
 <!doctype html>
 <html ⚡ lang="en">
 
-{% assign items = site.productitems | sort: "score" %}
-{% for item in items %}
-	{% if item.tags contains page.category %}
-		{% capture items_count %}{{ items_count | plus: 1 }}{% endcapture %}
-	{% endif %}
-{% endfor %}
+
+
 
 
 <head>
@@ -21,50 +17,43 @@
 </style>
 
 <!-- Canonical: need check again -->
-{% if (page.canonical) %}
-<link rel="canonical" href="{{ page.canonical }}">
-{% else %}
-<link rel="canonical" href="{{ page.url }}">
-{% endif %}
+
+<link rel="canonical" href="/gifts/sample-collection/">
 
 
-<title>{{ page.meta-title }} {{ site.time | date:"%Y" }} &#8211; {{ site.title }}</title>
-<meta name="description" content="{% if page.meta-description %}{{ page.meta-description }}{% else %}The best {{ items_count }} {{ page.title }} gifts from hundreds of {{ page.meta-title }} as derived from Mageplaza Ranking which is using Mageplaza scores, rating reviews, search, social metrics.{% endif %}">
+
+<title>Sample collection title 2021 &#8211; Product Reviews</title>
+<meta name="description" content="The best  Sample Collection gifts from hundreds of Sample collection title as derived from Mageplaza Ranking which is using Mageplaza scores, rating reviews, search, social metrics.">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-<meta property="og:description" content="{% if page.description %}{{ page.description }}{% endif %}">
-<meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:site_name" content="{{ site.name }}">
-
-{% if site.google_verify %}<meta name="google-site-verification" content="{{ site.google_verify }}">{% endif %}
-{% if site.bing_verify %}<meta name="msvalidate.01" content="{{ site.bing_verify }}">{% endif %}
-
-
-<link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+<meta property="og:title" content="Sample Collection">
+<meta property="og:description" content="Write  1-2 sentences. You can Copy from long description below (1-2 câu ý chính).">
+<meta property="og:url" content="/gifts/sample-collection/">
+<meta property="og:site_name" content="Product Reviews">
 
 
 
 
-{% if site.allow_search_engine == false %}
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Product Reviews Feed">
+
+
+
+
+
 <meta name="robots" content="NOINDEX,NOFOLLOW"/>
-{% elsif page.allow_search_engine == false %}
-<meta name="robots" content="NOINDEX,NOFOLLOW"/>
-{% endif %}
+
 
 
 
 </head>
 
 <body>
-{% if site.google_tag_manager_id %}
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.google_tag_manager_id }}"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-{% endif %}
+
 
 
 
@@ -155,9 +144,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav>
 <div class="nav-wrapper container" id="breadcrumb-wrapper">
   <div class="col s12 m12 l12">
-    <a href="{{ site.url }}" class="breadcrumb">Home</a>
-    <a href="{{ site.url }}/gifts/" class="breadcrumb">Gifts</a>
-    <a class="breadcrumb">{% if page.h1-title %}{{ page.h1-title }}{% else %}{{ page.title }}{% endif %}</a>
+    <a href="" class="breadcrumb">Home</a>
+    <a href="/gifts/" class="breadcrumb">Gifts</a>
+    <a class="breadcrumb">Sample collection H1</a>
   </div>
 </div>
 </nav>
@@ -169,18 +158,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     	<div class="row" id="page-content">
 	        <div class="col s12" id="product-review-content">
-	        {% if page.image %}
-	        <div class="card-image">
-              <amp-img src="{{ page.image }}" alt="{{ pate.title }}" layout="responsive"></amp-img>
-            </div>
-            {% endif %}
+	        
 
-	        <h1 class="header">{% if page.h1-title %}{{ page.h1-title }}{% else %}{{ page.title }}{% endif %} {{ site.time | date:"%Y" }}</h1>
+	        <h1 class="header">Sample collection H1 2021</h1>
 	        	
 				
-			    {{ content }}
+			    <p>Long Description about this collection. Write 200-300 words about this collection.</p>
+<ul>
+  <li>What?</li>
+  <li>Purpose: gach dau dong.</li>
+  <li>For whom?</li>
+</ul>
 
-				<!-- <p>If you want to add or remove an item in the {{ page.title }} list, feel free to contact us at <a href="https://www.mageplaza.com/contact.html" target="_blank">Contact us</a></p> -->
+<!-- TOC -->
+<div class="table-of-content">
+  <ul>
+    
+    
+    
+  </ul>
+</div>
+<!-- END TOC -->
+
+
+
+				<!-- <p>If you want to add or remove an item in the Sample Collection list, feel free to contact us at <a href="https://www.mageplaza.com/contact.html" target="_blank">Contact us</a></p> -->
 	           
 
 	        </div>
@@ -203,40 +205,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="col s12 m6">
           <p class="copyrigh-info white-text">
-              © Copyright {{ site.time | date:"%Y" }} by <a href="{{ site.url }}" class="white-text">Mageplaza</a>. All Rights Reserved.
+              © Copyright 2021 by <a href="" class="white-text">Mageplaza</a>. All Rights Reserved.
           </p>
       </div>
       <div class="col s12 m6 grey-text">
-          <a href="{{ site.url }}/magento-2-one-step-checkout-extension/" title="Magento 2 one step checkout">One Step Checkout</a> /
-          <a href="{{ site.url }}/magento-2-layered-navigation-extension/" title="Magento 2 Layered Navigation Ultimate">Layered Navigation Ultimate</a> /
-          <a href="{{ site.url }}/magento-2-affiliate-extension/" title="Magento 2 Affiliate extension">Affiliate PRO</a> /
-          <a href="{{ site.url }}/magento-2-seo-extension/" title="Magento 2 SEO extension">SEO All-in-one</a> /
-          <a href="{{ site.url }}/magento-2-social-login-extension/" title="Magento 2 Social Login">Social Login</a> /
-          <a href="{{ site.url }}/magento-2-better-blog/" title="Magento 2 blog extension">Better Blog</a> /
+          <a href="/magento-2-one-step-checkout-extension/" title="Magento 2 one step checkout">One Step Checkout</a> /
+          <a href="/magento-2-layered-navigation-extension/" title="Magento 2 Layered Navigation Ultimate">Layered Navigation Ultimate</a> /
+          <a href="/magento-2-affiliate-extension/" title="Magento 2 Affiliate extension">Affiliate PRO</a> /
+          <a href="/magento-2-seo-extension/" title="Magento 2 SEO extension">SEO All-in-one</a> /
+          <a href="/magento-2-social-login-extension/" title="Magento 2 Social Login">Social Login</a> /
+          <a href="/magento-2-better-blog/" title="Magento 2 blog extension">Better Blog</a> /
           <a href="https://www.mageplaza.com/magento-2-security/">Security</a> /
-          <a href="{{ site.url }}/magento-2-gift-card-extension/" title="Magento 2 Gift Card, Certificates">Gift Card</a> /
-          <a href="{{ site.url }}/magento-2-reward-points-extension/" title="Magento 2 Reward Points">Reward Points</a> /
+          <a href="/magento-2-gift-card-extension/" title="Magento 2 Gift Card, Certificates">Gift Card</a> /
+          <a href="/magento-2-reward-points-extension/" title="Magento 2 Reward Points">Reward Points</a> /
           <a href="https://www.mageplaza.com/magento-2-shop-by-brand/" title="Magento 2 Shop by brand">Shop by Brand</a> /
           
-          <a href="{{ site.url }}/magento-2-smtp/">SMTP</a> /
-          <a href="{{ site.url }}/magento-2-pdf-invoice-extension/">PDF Invoice</a> /
+          <a href="/magento-2-smtp/">SMTP</a> /
+          <a href="/magento-2-pdf-invoice-extension/">PDF Invoice</a> /
           <a href="https://avada.io/" title="Avada Commerce">Avada Commerce</a> /
-          <a  class="white-text" href="{{ site.url }}/sitemap/" title="Mageplaza Sitemap">Sitemap</a> /
-          <a href="{{ site.url }}/magento-2-extensions/administration.html" title="Magento 2 Administration extensions">Administration</a> /
-          <a href="{{ site.url }}/magento-2-extensions/checkout.html" title="Magento 2 Checkout extensions">Checkout & Payment</a> /
-          <a href="{{ site.url }}/magento-2-extensions/promotions.html" title="Magento 2 Promotions extensions">Promotions</a> /
-          <a href="{{ site.url }}/magento-2-extensions/b2b.html" title="Magento 2 B2B extensions">B2B</a> /
-          <a href="{{ site.url }}/magento-2-extensions/navigation.html" title="Magento 2 Navigation extensions">Navigation</a> /
-          <a href="{{ site.url }}/magento-2-extensions/product-enhancements.html" title="Magento 2 Product Enchancements extensions">Product Enchancements</a> /
-          <a href="{{ site.url }}/magento-2-extensions/sales-motivation.html" title="Magento 2 Sales Motivation extensions">Sales Motivation</a> /
-          <a href="{{ site.url }}/magento-2-extensions/content-management.html" title="Magento 2 Content Management extensions">Content Management</a> /
-          <a href="{{ site.url }}/magento-2-extensions/user-experience.html" title="Magento 2 User Experience extensions">User Experience</a> /
-          <a href="{{ site.url }}/magento-2-extensions/shipping-payment.html" title="Magento 2 Shipping & Fee extensions">Shipping & Fee</a> /
-          <a href="{{ site.url }}/magento-2-extensions/order-management.html" title="Magento 2 Order Management extensions">Order Management</a> /
-          <a href="{{ site.url }}/magento-2-extensions/seo-suite.html" title="Magento 2 SEO Suite extensions">SEO Suite</a> /
-          <a href="{{ site.url }}/review/" title="Magento 2 extensions review">Extension Reviews</a> /
+          <a  class="white-text" href="/sitemap/" title="Mageplaza Sitemap">Sitemap</a> /
+          <a href="/magento-2-extensions/administration.html" title="Magento 2 Administration extensions">Administration</a> /
+          <a href="/magento-2-extensions/checkout.html" title="Magento 2 Checkout extensions">Checkout & Payment</a> /
+          <a href="/magento-2-extensions/promotions.html" title="Magento 2 Promotions extensions">Promotions</a> /
+          <a href="/magento-2-extensions/b2b.html" title="Magento 2 B2B extensions">B2B</a> /
+          <a href="/magento-2-extensions/navigation.html" title="Magento 2 Navigation extensions">Navigation</a> /
+          <a href="/magento-2-extensions/product-enhancements.html" title="Magento 2 Product Enchancements extensions">Product Enchancements</a> /
+          <a href="/magento-2-extensions/sales-motivation.html" title="Magento 2 Sales Motivation extensions">Sales Motivation</a> /
+          <a href="/magento-2-extensions/content-management.html" title="Magento 2 Content Management extensions">Content Management</a> /
+          <a href="/magento-2-extensions/user-experience.html" title="Magento 2 User Experience extensions">User Experience</a> /
+          <a href="/magento-2-extensions/shipping-payment.html" title="Magento 2 Shipping & Fee extensions">Shipping & Fee</a> /
+          <a href="/magento-2-extensions/order-management.html" title="Magento 2 Order Management extensions">Order Management</a> /
+          <a href="/magento-2-extensions/seo-suite.html" title="Magento 2 SEO Suite extensions">SEO Suite</a> /
+          <a href="/review/" title="Magento 2 extensions review">Extension Reviews</a> /
           <a href="https://www.mageplaza.com/blog/magento-2-3-2-release-notes.html" title="Magento 2.3.2 Release Notes">Magento 2.3.2</a>
-          <!-- <a href="{{ site.url }}/blog/best-magento-extensions.html" title="best magento 2 modules">Magento 2 Extensions</a>    -->
+          <!-- <a href="/blog/best-magento-extensions.html" title="best magento 2 modules">Magento 2 Extensions</a>    -->
       </div>
 
 

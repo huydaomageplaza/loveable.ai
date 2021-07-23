@@ -1,9 +1,8 @@
 ---
-layout: gift_items
+layout: gift_item
 title: Sample
 category: 
-tags: 
-	- party
+tags: party
 vendor: amanweb
 permalink: "/gifts/items/tea-party-gift-set.html"
 product_url: https://www.amazon.com/gp/product/B07NV2SMB3/
