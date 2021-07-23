@@ -2084,6 +2084,286 @@ h1+.ampstart-byline time {
   font-size: 1rem;
   font-weight: 400
 }
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: center;
+  position: relative;
+  width: 100%;
+  background: var(--card-back-color);
+  color: var(--card-fore-color);
+  border: 0.0625rem solid var(--card-border-color);
+  border-radius: var(--universal-border-radius);
+  margin: var(--universal-margin);
+  overflow: hidden;
+}
+@media screen and (min-width: 320px) {
+  .card {
+    max-width: 320px;
+  }
+}
+.card > .section {
+  background: var(--card-back-color);
+  color: var(--card-fore-color);
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 0.0625rem solid var(--card-border-color);
+  padding: var(--universal-padding);
+  width: 100%;
+}
+.card > .section.media {
+  height: 200px;
+  padding: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.card > .section:last-child {
+  border-bottom: 0;
+}
+@media screen and (min-width: 240px) {
+  .card.small {
+    max-width: 240px;
+  }
+}
+@media screen and (min-width: 480px) {
+  .card.large {
+    max-width: 480px;
+  }
+}
+
+
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+}
+.col-sm,
+[class^="col-sm-"],
+[class^="col-sm-offset-"],
+.row[class*="cols-sm-"] > * {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  padding: 0 calc(var(--universal-padding) / 2);
+}
+.col-sm,
+.row.cols-sm > * {
+  max-width: 100%;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.col-sm-1,
+.row.cols-sm-1 > * {
+  max-width: 8.33333%;
+  flex-basis: 8.33333%;
+}
+.col-sm-offset-0 {
+  margin-left: 0;
+}
+.col-sm-2,
+.row.cols-sm-2 > * {
+  max-width: 16.66667%;
+  flex-basis: 16.66667%;
+}
+.col-sm-offset-1 {
+  margin-left: 8.33333%;
+}
+.col-sm-3,
+.row.cols-sm-3 > * {
+  max-width: 25%;
+  flex-basis: 25%;
+}
+.col-sm-offset-2 {
+  margin-left: 16.66667%;
+}
+.col-sm-4,
+.row.cols-sm-4 > * {
+  max-width: 33.33333%;
+  flex-basis: 33.33333%;
+}
+.col-sm-offset-3 {
+  margin-left: 25%;
+}
+.col-sm-5,
+.row.cols-sm-5 > * {
+  max-width: 41.66667%;
+  flex-basis: 41.66667%;
+}
+.col-sm-offset-4 {
+  margin-left: 33.33333%;
+}
+.col-sm-6,
+.row.cols-sm-6 > * {
+  max-width: 50%;
+  flex-basis: 50%;
+}
+.col-sm-offset-5 {
+  margin-left: 41.66667%;
+}
+.col-sm-7,
+.row.cols-sm-7 > * {
+  max-width: 58.33333%;
+  flex-basis: 58.33333%;
+}
+.col-sm-offset-6 {
+  margin-left: 50%;
+}
+.col-sm-8,
+.row.cols-sm-8 > * {
+  max-width: 66.66667%;
+  flex-basis: 66.66667%;
+}
+.col-sm-offset-7 {
+  margin-left: 58.33333%;
+}
+.col-sm-9,
+.row.cols-sm-9 > * {
+  max-width: 75%;
+  flex-basis: 75%;
+}
+.col-sm-offset-8 {
+  margin-left: 66.66667%;
+}
+.col-sm-10,
+.row.cols-sm-10 > * {
+  max-width: 83.33333%;
+  flex-basis: 83.33333%;
+}
+.col-sm-offset-9 {
+  margin-left: 75%;
+}
+.col-sm-11,
+.row.cols-sm-11 > * {
+  max-width: 91.66667%;
+  flex-basis: 91.66667%;
+}
+.col-sm-offset-10 {
+  margin-left: 83.33333%;
+}
+.col-sm-12,
+.row.cols-sm-12 > * {
+  max-width: 100%;
+  flex-basis: 100%;
+}
+.col-sm-offset-11 {
+  margin-left: 91.66667%;
+}
+.col-sm-normal {
+  order: initial;
+}
+.col-sm-first {
+  order: -999;
+}
+.col-sm-last {
+  order: 999;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+button {
+  overflow: visible;
+  text-transform: none;
+}
+button,
+[type="button"],
+[type="submit"],
+[type="reset"],
+a.button,
+label.button,
+.button,
+a[role="button"],
+label[role="button"],
+[role="button"] {
+  display: inline-block;
+  background: var(--button-back-color);
+  color: var(--button-fore-color);
+  border: 0.0625rem solid var(--button-border-color);
+  border-radius: var(--universal-border-radius);
+  padding: var(--universal-padding) calc(1.5 * var(--universal-padding));
+  margin: var(--universal-margin);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button:hover,
+button:focus,
+[type="button"]:hover,
+[type="button"]:focus,
+[type="submit"]:hover,
+[type="submit"]:focus,
+[type="reset"]:hover,
+[type="reset"]:focus,
+a.button:hover,
+a.button:focus,
+label.button:hover,
+label.button:focus,
+.button:hover,
+.button:focus,
+a[role="button"]:hover,
+a[role="button"]:focus,
+label[role="button"]:hover,
+label[role="button"]:focus,
+[role="button"]:hover,
+[role="button"]:focus {
+  background: var(--button-hover-back-color);
+  border-color: var(--button-hover-border-color);
+}
+input:disabled,
+input[disabled],
+textarea:disabled,
+textarea[disabled],
+select:disabled,
+select[disabled],
+button:disabled,
+button[disabled],
+.button:disabled,
+.button[disabled],
+[role="button"]:disabled,
+[role="button"][disabled] {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+button.primary,
+[type="button"].primary,
+[type="submit"].primary,
+[type="reset"].primary,
+.button.primary,
+[role="button"].primary {
+  --button-back-color: #1976d2;
+  --button-fore-color: #f8f8f8;
+}
+button.primary:hover,
+button.primary:focus,
+[type="button"].primary:hover,
+[type="button"].primary:focus,
+[type="submit"].primary:hover,
+[type="submit"].primary:focus,
+[type="reset"].primary:hover,
+[type="reset"].primary:focus,
+.button.primary:hover,
+.button.primary:focus,
+[role="button"].primary:hover,
+[role="button"].primary:focus {
+  --button-hover-back-color: #1565c0;
+}
+
 </style>
 
     <script
@@ -2320,12 +2600,7 @@ h1+.ampstart-byline time {
           ></amp-img>
         </header>
         <p class="mb4 px3">
-          Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-          quis gravida magna mi a libero. Fusce vulputate eleifend sapien.
-          Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus.
-          Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit
-          fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et
-          ultrices posuere.
+          
         </p>
 
         <p class="mb4 px3">
