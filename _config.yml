@@ -1,0 +1,53 @@
+name: "Product Reviews"
+title: "Product Reviews"
+slogan: 
+description:
+email: "support@mageplaza.com"
+url: 
+allow_search_engine: true
+google_verify: 
+bing_verify:
+google_analytics:
+google_tag_manager_id: 
+google_plus:
+subcriber_url: ""
+# Build Settings
+markdown: "kramdown"
+highlighter: rouge
+kramdown:
+  toc_levels: 2..3
+encoding: "UTF-8"
+
+# http://jekyllrb.com/docs/permalinks/
+# /:title/ /:title.html
+permalink:   "/:categories/:title/"
+
+# Amount of post to show on home page
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+refund: 60
+address_us: "100 Church St, Manhattan, New York"
+address_vn: "102 Tran Phu, Ha Dong, Hanoi"
+
+
+future: true
+plugins:
+  - jekyll-redirect-from
+  - jekyll-paginate
+include: [".htaccess", "LICENSE.txt", "*.woff", "*.ttf", "*.json"]
+exclude: ["_site", lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "vendor", "shell", ".keep", "note.xml", "templates", "private"]
+collections:
+  pages:
+    output: true
+  giftcollections:
+    output: true
+  giftitems:
+    output: true
+
+
+related:
+  max_count: 5
+  min_score: 0.1
+  accuracy: 0.75
+
