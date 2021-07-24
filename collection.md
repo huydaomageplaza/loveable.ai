@@ -32,7 +32,7 @@ author: "Sam Thomas"
       },
       "headline": "{{ page.title }}",
       "image": [
-        "{{ page.image }}",
+        "{{ page.image }}"
       ],
       "datePublished": "{{ page.date | date: '%B %d, %Y' }}",
  "dateCreated": "{{ page.date | date: '%B %d, %Y' }}",
@@ -65,7 +65,7 @@ author: "Sam Thomas"
           <!-- Start byline -->
           <address class="ampstart-byline clearfix mb4 px3 h5">
             <time class="ampstart-byline-pubdate bold my1"
-              datetime="2016-12-13"\>Last Updated on December 13, 2016</time>
+              datetime="2016-12-13">Last Updated on December 13, 2016</time>
               <span class="right">By <a href="{{ site.url }}/author.html">Sam Thomas</a></span>
           </address>
           <!-- End byline -->
