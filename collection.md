@@ -31,40 +31,24 @@ author: "Sam Thomas"
         "@id": "https://google.com/article"
       },
       "headline": "{{ page.title }}",
-      "alternativeHeadline": "{% if page.meta-title %}{{ page.meta-title }}{% else %}{{ page.h1-title }}{% endif %}",
-      "image": {
-        "@type": "ImageObject",
-        {% if page.image %}
-        "url": "{{ page.image }}",
-        {% else %}
-        "url": "https://www.mageplaza.com/assets/img/mageplaza-default-banner.jpg",
-        {% endif %}
-        "width": 954,
-        "height": 259
-    },
-    {% if page.author %}
-        "author": {
+      "image": [
+        "{{ page.image }}",
+      ],
+      "datePublished": "{{ page.date | date: '%B %d, %Y' }}",
+ "dateCreated": "{{ page.date | date: '%B %d, %Y' }}",
+ "dateModified": "{% assign year = (page.date | date: "%Y") %}{% if year != "{{ site.time | date:"%Y" }}" %}{{ page.date | date: '%B %d,' }} {{ site.time | date:"%Y" | minus:1 }} {% else %}{{ page.date | date: '%B %d, %Y' }}{% endif %}",
+      "author": {
         "@type": "Person",
         "name": "{{ page.author }}"
       },
-    {% else %}
-        "author": {
-        "@type": "Person",
-        "name": "Sam Thomas"
-      },
-    {% endif %}
-       "datePublished": "{{ page.date | date: '%B %d, %Y' }}",
- "dateCreated": "{{ page.date | date: '%B %d, %Y' }}",
- "dateModified": "{% assign year = (page.date | date: "%Y") %}{% if year != "{{ site.time | date:"%Y" }}" %}{{ page.date | date: '%B %d,' }} {{ site.time | date:"%Y" | minus:1 }} {% else %}{{ page.date | date: '%B %d, %Y' }}{% endif %}",
-       "publisher": {
-      "@type": "Organization",
-      "name": "Mageplaza",
-      "logo": {
-              "@type": "ImageObject",
-              "url": "https://www.mageplaza.com/skin/frontend/mageplaza/landingpage/images/logo.png",
-              "width": 189,
-              "height": 164
-          }
+      "publisher": {
+        "@type": "Organization",
+        "name": "Mageplaza",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.mageplaza.com/skin/frontend/mageplaza/landingpage/images/logo.png"
+        }
+      }
     }
     </script>
 
