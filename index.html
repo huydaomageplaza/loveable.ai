@@ -47,174 +47,31 @@ permalink: "/"
 
 	        <div class="row">
 
-	        	<!-- Item -->
+	        {% assign collections = (site.productcollections ) %}
+              {% for item in collections %}
+
+        	<!-- Item -->
 			  <div class="col-lg-4 col-sm-12 ">
 			   	<div class="product-item pb2 m2">
 			   		<a href="#"><amp-img
-                      src="{{ site.url }}/img/party.svg"
+                      src="{{item.image}}"
                       width="200"
                       height="133"
                       layout="responsive"
-                      alt="The final spritzer"
+                      alt="{{item.title}}"
                       class=""
                     ></amp-img>
-				  	<h3 class="ml2">Media object heading</h3>
+				  	<h3 class="ml2 truncate">{{item.title}}</h3>
 				    <p class="m2">
-				    	Puis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis,
-                  ipsum. Sed aliquam ultrices mauris. adasd
+				    	{{item.description}}
 				    </p>
 				    </a>
 			   	</div>
 			  </div>
 			  <!-- end Item -->
+			  {% endfor %}
 			  
-	        	<!-- Item -->
-			  <div class="col-lg-4 col-sm-12 ">
-			   	<div class="product-item pb2 m2">
-			   		<a href="#"><amp-img
-                      src="{{ site.url }}/img/party.svg"
-                      width="200"
-                      height="133"
-                      layout="responsive"
-                      alt="The final spritzer"
-                      class=""
-                    ></amp-img>
-				  	<h3 class="ml2">Media object heading</h3>
-				    <p class="m2">
-				    	Puis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis,
-                  ipsum. Sed aliquam ultrices mauris. adasd
-				    </p>
-				    </a>
-			   	</div>
-			  </div>
-			  <!-- end Item -->
-			  
-	        	<!-- Item -->
-			  <div class="col-lg-4 col-sm-12 ">
-			   	<div class="product-item pb2 m2">
-			   		<a href="#"><amp-img
-                      src="{{ site.url }}/img/party.svg"
-                      width="200"
-                      height="133"
-                      layout="responsive"
-                      alt="The final spritzer"
-                      class=""
-                    ></amp-img>
-				  	<h3 class="ml2">Media object heading</h3>
-				    <p class="m2">
-				    	Puis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis,
-                  ipsum. Sed aliquam ultrices mauris. adasd
-				    </p>
-				    </a>
-			   	</div>
-			  </div>
-			  <!-- end Item -->
-			  
-	        	<!-- Item -->
-			  <div class="col-lg-4 col-sm-12 ">
-			   	<div class="product-item pb2 m2">
-			   		<a href="#"><amp-img
-                      src="{{ site.url }}/img/party.svg"
-                      width="200"
-                      height="133"
-                      layout="responsive"
-                      alt="The final spritzer"
-                      class=""
-                    ></amp-img>
-				  	<h3 class="ml2">Media object heading</h3>
-				    <p class="m2">
-				    	Puis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis,
-                  ipsum. Sed aliquam ultrices mauris. adasd
-				    </p>
-				    </a>
-			   	</div>
-			  </div>
-			  <!-- end Item -->
-
-			  	<!-- Item -->
-			  <div class="col-lg-4 col-sm-12 ">
-			   	<div class="product-item pb2 m2">
-			   		<a href="#"><amp-img
-                      src="{{ site.url }}/img/party.svg"
-                      width="200"
-                      height="133"
-                      layout="responsive"
-                      alt="The final spritzer"
-                      class=""
-                    ></amp-img>
-				  	<h3 class="ml2">Media object heading</h3>
-				    <p class="m2">
-				    	Puis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis,
-                  ipsum. Sed aliquam ultrices mauris. adasd
-				    </p>
-				    </a>
-			   	</div>
-			  </div>
-			  <!-- end Item -->
-
-			  	<!-- Item -->
-			  <div class="col-lg-4 col-sm-12 ">
-			   	<div class="product-item pb2 m2">
-			   		<a href="#"><amp-img
-                      src="{{ site.url }}/img/party.svg"
-                      width="200"
-                      height="133"
-                      layout="responsive"
-                      alt="The final spritzer"
-                      class=""
-                    ></amp-img>
-				  	<h3 class="ml2">Media object heading</h3>
-				    <p class="m2">
-				    	Puis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis,
-                  ipsum. Sed aliquam ultrices mauris. adasd
-				    </p>
-				    </a>
-			   	</div>
-			  </div>
-			  <!-- end Item -->
-
-			  	<!-- Item -->
-			  <div class="col-lg-4 col-sm-12 ">
-			   	<div class="product-item pb2 m2">
-			   		<a href="#"><amp-img
-                      src="{{ site.url }}/img/party.svg"
-                      width="200"
-                      height="133"
-                      layout="responsive"
-                      alt="The final spritzer"
-                      class=""
-                    ></amp-img>
-				  	<h3 class="ml2">Media object heading</h3>
-				    <p class="m2">
-				    	Puis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis,
-                  ipsum. Sed aliquam ultrices mauris. adasd
-				    </p>
-				    </a>
-			   	</div>
-			  </div>
-			  <!-- end Item -->
-
-			  	<!-- Item -->
-			  <div class="col-lg-4 col-sm-12 ">
-			   	<div class="product-item pb2 m2">
-			   		<a href="#"><amp-img
-                      src="{{ site.url }}/img/party.svg"
-                      width="200"
-                      height="133"
-                      layout="responsive"
-                      alt="The final spritzer"
-                      class=""
-                    ></amp-img>
-				  	<h3 class="ml2">Media object heading</h3>
-				    <p class="m2">
-				    	Puis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis,
-                  ipsum. Sed aliquam ultrices mauris. adasd
-				    </p>
-				    </a>
-			   	</div>
-			  </div>
-			  <!-- end Item -->
-
+	        	
 			  
 			  
 

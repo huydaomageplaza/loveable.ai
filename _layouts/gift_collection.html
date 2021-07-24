@@ -61,62 +61,28 @@
           <section class="related-articles mt5">
             <h2 class="mb4 mt5 px3">Related Gifts</h2>
 
-        
+        {% assign items = (site.productcollections | where:"category", page.category | limit: 5 | reverse) %}
+
+        {% for item in items %}
           <!-- Start -->
               <div class="row">
                 <div class="col-sm-12 col-lg-2">
                    <amp-img
-                      src="{{ site.url }}/img/party.svg"
+                      src="{{item.image}}"
                       width="200"
                       height="133"
                       layout="responsive"
-                      alt="The final spritzer"
+                      alt="{{item.title}}"
                       class="mt3"
                     ></amp-img>
                 </div>
                 <div class="col-sm-12 col-lg-10">
-                  <h3 class="mt4 mb4 px4">35+ Gifts for Daddy </h3>
+                  <h3 class="mt4 mb4 px4"><a href="{{item.url}}">{{item.title}}</a></h3>
                 </div>
               </div>
           <!-- End -->
+          {% endfor %}
 
-          <!-- Start -->
-              <div class="row">
-                <div class="col-sm-12 col-lg-2">
-                   <amp-img
-                      src="{{ site.url }}/img/party.svg"
-                      width="200"
-                      height="133"
-                      layout="responsive"
-                      alt="The final spritzer"
-                      class="mt3"
-                    ></amp-img>
-                </div>
-                <div class="col-sm-12 col-lg-10">
-                  <h3 class="mt4 mb4 px4">35+ Gifts for Daddy </h3>
-                </div>
-              </div>
-          <!-- End -->
-
-
-          
-          <!-- Start -->
-              <div class="row">
-                <div class="col-sm-12 col-lg-2">
-                   <amp-img
-                      src="{{ site.url }}/img/party.svg"
-                      width="200"
-                      height="133"
-                      layout="responsive"
-                      alt="The final spritzer"
-                      class="mt3"
-                    ></amp-img>
-                </div>
-                <div class="col-sm-12 col-lg-10">
-                  <h3 class="mt4 mb4 px4">35+ Gifts for Daddy </h3>
-                </div>
-              </div>
-          <!-- End -->
 
           </section>
           <!-- End related -->
