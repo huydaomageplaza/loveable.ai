@@ -10,8 +10,7 @@ product_url: "https://www.amazon.com/dp/B07WLXXDQ4/"
 product_image: "https://i.imgur.com/zaq2lLw.jpg"
 description: 
 author: Sam
-vendor: {{vendor}}
-type: {{type}}
+vendor: Amazon
 ---
 ♬ Vintage design - This music box is woody. The exquisite surface carved by hand in imitation of ancient times bring you into a magic world.
 ♬ Spin the crank handle - Rotate the handle, you will hear a clear music without battery power.

@@ -10,8 +10,7 @@ product_url: "https://www.amazon.com/Alex-Ani-Because-Love-You/dp/B08BPLL211"
 product_image: "https://i.imgur.com/vFl4bg6.jpg"
 description: 
 author: Sam
-vendor: {{vendor}}
-type: {{type}}
+vendor: Amazon
 ---
 JEWELRY ENVELOPED IN LOVE: Express your love with this Alex and Ani Bonded by Love Charm Bangle, reminding her that you’ll always cherish her as your first caregiver
 MEANINGFUL CHARMS: This beautiful adjustable bangle has a two-sided charm that says “Mom” on the front and “Bonded by love, connected for life” in script on the back–a treasured reminder always

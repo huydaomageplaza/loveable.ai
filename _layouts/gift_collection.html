@@ -34,7 +34,7 @@
           <div class="table-of-content">
             <ol class="mb4 px3 mx4">
               <!-- //Limit 10 -->
-              {% for item in items %}
+              {% for item in items limit:9 %}
               <li><a href="#{{ item.slug }}">{{ item.title }}</a></li>
               {% endfor %}
               <li>and more ...</li>
