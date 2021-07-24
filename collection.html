@@ -9,7 +9,7 @@ author: "Sam Thomas"
   <head>
     <meta charset="utf-8" />
     <title>Gifts Reviews Collection</title>
-    <link rel="canonical" href="/collection.html" />
+    <link rel="canonical" href="{{ site.url }}/collection.html" />
     <meta name="viewport" content="width=device-width" />
     <meta name="amp-google-client-id-api" content="googleanalytics" />
     <meta name="description" content="Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis,
@@ -31,6 +31,7 @@ author: "Sam Thomas"
         "@id": "https://google.com/article"
       },
       "headline": "{{ page.title }}",
+      "alternativeHeadline": "{% if page.meta-title %}{{ page.meta-title }}{% else %}{{ page.h1-title }}{% endif %}",
       "image": {
         "@type": "ImageObject",
         {% if page.image %}
@@ -41,7 +42,7 @@ author: "Sam Thomas"
         "width": 954,
         "height": 259
     },
- {% if page.author %}
+    {% if page.author %}
         "author": {
         "@type": "Person",
         "name": "{{ page.author }}"
