@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ⚡="">
+<head>
+<meta charset="utf-8" />
+<title>{% if page.meta-title %} {{ page.meta-title }} {% else %} {{ page.title }}  {% endif %} &#8211; {{ site.title }}</title>
+<meta name="description" content="{% if page.meta-description %}{{ page.meta-description }}{% else %}{{ page.description }}{% endif %}">
+
+<meta name="viewport" content="width=device-width" />
+<meta name="amp-google-client-id-api" content="googleanalytics" />
+<script async="" src="https://cdn.ampproject.org/v0.js"></script>
+{% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+<!-- Canonical -->
+{% if (page.canonical) %}
+<link rel="canonical" href="{{ page.canonical }}">
+{% else %}
+<link rel="canonical" href="{{ canonical }}">
+{% endif %}
+
+{% if site.allow_search_engine == false %}
+<meta name="robots" content="NOINDEX,NOFOLLOW"/>
+{% elsif page.allow_search_engine == false %}
+<meta name="robots" content="NOINDEX,NOFOLLOW"/>
+{% endif %}

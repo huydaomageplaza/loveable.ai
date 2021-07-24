@@ -1,0 +1,30 @@
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://google.com/article"
+    },
+    "headline": "{{ page.title }}",
+    "image": [
+      "{{ page.image }}"
+    ],
+    "datePublished": "{{ page.date | date: '%B %d, %Y' }}",
+"dateCreated": "{{ page.date | date: '%B %d, %Y' }}",
+"dateModified": "{% assign year = (page.date | date: "%Y") %}{% if year != "{{ site.time | date:"%Y" }}" %}{{ page.date | date: '%B %d,' }} {{ site.time | date:"%Y" | minus:1 }} {% else %}{{ page.date | date: '%B %d, %Y' }}{% endif %}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ page.author }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mageplaza",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}/img/logo.png"
+      }
+    }
+  }
+  </script>
