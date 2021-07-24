@@ -27,18 +27,18 @@ class Sam extends Shell{
 	}
 
 	public function getAllProductCollections(){
-		// $collections = $this->getContentByCRUL($this->appEndpoint() . '?_limit=500');
+		$collections = $this->getContentByCRUL($this->appEndpoint() . '?_limit=500');
 
-		$collections = file_get_contents('../static/sample.json');
+		// $collections = file_get_contents('../static/sample.json');
 		$collections = json_decode($collections, true);
 		return $collections;
 	}
 
 	public function generateProductCollection(){
-		
-
-
 		$colletions = $this->getAllProductCollections();
+		
+		if(!count($colletions)) return null;
+
 		foreach ($colletions as $collection) {
 			// var_dump($colletions);
 
@@ -49,16 +49,16 @@ class Sam extends Shell{
 			$this->outputFolder = '../_productcollections';
 			$fields = [
 				'id' => $collection['_id'],
-				'title' => $collection['title'],
+				'title' => trim(strip_tags($collection['title'])),
 				'allow_search_engine' => (string) $collection['allow_search_engine'],
 				'published' =>  (string) $collection['published'],
 				'sort_order' =>  $collection['sort_order'],
-				'image' =>  'http://avapi.avada.io:1337' . $collection['image']['url'],
+				'image' =>  $collection['image']['url'],
 				'permalink' =>  $collection['permalink'],
-				'description' =>  $collection['description'],
-				'metaTitle' =>  $collection['metaTitle'],
-				'h1Title' =>  $collection['h1Title'],
-				'metaDescription' =>  $collection['metaDescription'],
+				'description' =>  trim(strip_tags($collection['description'])),
+				'meta_title' =>  trim(strip_tags($collection['meta_title'])),
+				'h1_title' =>  trim(strip_tags($collection['h1_title'])),
+				'meta_description' =>  trim(strip_tags($collection['meta_description'])),
 				'content' =>  $collection['content'],
 				'createdAt' =>  $collection['createdAt'],
 				'updatedAt' =>  $collection['updatedAt'],
@@ -85,14 +85,13 @@ class Sam extends Shell{
 			foreach ($collection['productitems'] as $item){
 				$item['collection_id'] = $collection['id'];
 				$item['slug'] = $this->slug($item['title']);
-				$item['image'] = 'http://avapi.avada.io:1337' . $item['image']['url'];
+				$item['image'] = $item['image']['url'];
 				$this->setVars($item);
 				$this->tag = $item['title'];
 				$this->generateFile($this->getFileName($collection['id'].'-'.$item['title']));
 
 			}
 
-		
 
 		}
 
