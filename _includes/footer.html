@@ -3,16 +3,16 @@
       <nav class="ampstart-footer-nav">
         <ul class="list-reset flex flex-wrap mb3">
           <li class="px1">
-            <a class="text-decoration-none ampstart-label" href="#">About</a>
+            <a class="text-decoration-none ampstart-label" href="{{ site.url }}/abount.html">About</a>
           </li>
           <li class="px1">
-            <a class="text-decoration-none ampstart-label" href="#">Contact</a>
+            <a class="text-decoration-none ampstart-label" href="{{ site.url }}/contact.html">Contact</a>
           </li>
           <li class="px1">
-            <a class="text-decoration-none ampstart-label" href="#">Terms</a>
+            <a class="text-decoration-none ampstart-label" href="{{ site.url }}/tos.html">Terms</a>
           </li>
         </ul>
       </nav>
-      <small> © AVADA, 2021 </small>
+      <small> Copyright {{ site.name }} © {{ site.time | date:"%Y" }} </small>
     </footer>
     <!-- End Footer -->
