@@ -5,16 +5,17 @@
 <!-- Start -->
     <div class="product-item-row row mb4" id="{{ item.slug}}">
       <div class="col-sm-12 col-lg-6">
-         <a href="{{item.product_url}}" target="_blank" rel="nofollow"></a><amp-img src="{{ item.product_image }}"
+         <a href="{{item.product_url}}" target="_blank" rel="nofollow"><amp-img src="{{ item.product_image }}"
                 width="500"
                 height="333"
                 layout="responsive"
                 alt="{{ item.title }}"
                 class="mt3"
-              ></amp-img></div>
+              ></amp-img>
+            </a>
       </div>
       <div class="col-sm-12  col-lg-6">
-      <h3 class="ml2 mt2">{{ forloop.index }}. {{ item.title }}</h3>
+      <h3 class="ml2 mt2"><a href="{{item.product_url}}" target="_blank" rel="nofollow">{{ forloop.index }}. {{ item.title }}</a></h3>
          <p class="mt4 mb4 px3">
            {{ item.content }}
          </p>
