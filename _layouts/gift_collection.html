@@ -10,14 +10,18 @@
     <main id="content" role="main" class="">
       <article>
         <header>
-          <span class="ampstart-subtitle block px3 pt2 mb2">Gifts > Grandma</span>
+          <span class="ampstart-subtitle block px3 pt2 mb2">
+            <a href="{{ site.url }}gifts/">Gifts</a> >
+            <a href="{{ site.url }}{{ page.category_permalink }}">{{ page.category_title }}</a> >
+            <a href="{{ site.url }}{{ page.topic_permalink }}">{{ page.topic_title }}</a>
+          </span>
           <h1 class="mb1 px3">{% if page.h1-title %}{{ page.h1-title }}{% else %}{{ page.title }}{% endif %}</h1>
 
           <!-- Start byline -->
           <address class="ampstart-byline clearfix mb4 px3 h5">
             <time class="ampstart-byline-pubdate bold my1"
               datetime="{{ page.date | date: '%Y-%m-%d' }}">Last Updated on {{ page.date | date: '%B %d, %Y' }}</time>
-              <span class="right">By <a href="{{ site.url }}/author.html">Sam Thomas</a></span>
+              <span class="right">By <a href="{{ site.url }}/author/sam.html">Sam Thomas</a></span>
           </address>
           <!-- End byline -->
         

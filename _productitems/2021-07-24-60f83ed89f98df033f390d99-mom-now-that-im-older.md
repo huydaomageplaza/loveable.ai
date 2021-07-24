@@ -7,7 +7,7 @@ collection_id: 60f83ed89f98df033f390d99
 tags: 
 permalink: "/productitem/60f83c000c89d702e342fa8e.html"
 product_url: "https://www.amazon.com/dp/B084WP5DXW"
-product_image: "http://avapi.avada.io:1337/uploads/a6e9676409964da0a0e5c5d7e62de2ec.jpg"
+product_image: "https://i.imgur.com/9C6KLi4.jpg"
 description: 
 author: Sam
 vendor: {{vendor}}

@@ -1,21 +1,26 @@
 ---
 layout: gift_collection
 title: "Birthday gifts for mom"
-meta-title: 
-meta-description: Meta des here
+meta-title: Birthday gifts for mom
+meta-description: One would be green while the other would be blue. One would reach her knee while the other barely touched her ankle.
 h1-title: 
 key: "60f83ed89f98df033f390d99"
 permalink: "/birth-day-gift-mom/"
-image: "http://avapi.avada.io:1337/uploads/0a046058aa3d4e5e9be79003d718dcd7.svg"
+image: "https://i.imgur.com/9EqeZmx.png"
 category: "60f83e5fb3ae22032e755669"
+category_title: "Gifts for Mom"
+category_permalink: "/category/gifts-for-mom/"
+topic: "60fc219fe3d4ec531321773b"
+topic_title: "Birthday gifts for mom"
+topic_permalink: "/topic/birthday-gifts-mom/"
 createdAt: "2021-07-21T15:35:52.975Z"
-updatedAt: "2021-07-24T12:32:36.810Z"
+updatedAt: "2021-07-24T15:04:44.443Z"
 published: "1"
 allow_search_engine: "1"
 sort_order: "999"
-author: "Sam"
-description: "One would be green while the other would be blue. One would reach her knee while the other barely touched her ankle. "
-item_count: "2"
+author: "Sam Thomas"
+description: "One would be green while the other would be blue. One would reach her knee while the other barely touched her ankle."
+item_count: "4"
 ---
 
 It was easy to spot her. All you needed to do was look at her socks. They were never a matching pair. One would be green while the other would be blue. One would reach her knee while the other barely touched her ankle. Every other part of her was perfect, but never the socks. They were her micro act of rebellion.

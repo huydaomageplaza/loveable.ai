@@ -43,7 +43,7 @@ class Sam extends Shell{
 			// var_dump($colletions);
 
 			//1. Generate collection
-
+var_dump($collection);
 			//template
 			$this->templateFile = '_templates/productcollection.html';
 			$this->outputFolder = '../_productcollections';
@@ -53,7 +53,7 @@ class Sam extends Shell{
 				'allow_search_engine' => (string) $collection['allow_search_engine'],
 				'published' =>  (string) $collection['published'],
 				'sort_order' =>  $collection['sort_order'],
-				'image' =>  $collection['image']['url'],
+				'image' =>  $collection['image'],
 				'permalink' =>  $collection['permalink'],
 				'description' =>  trim(strip_tags($collection['description'])),
 				'meta_title' =>  trim(strip_tags($collection['meta_title'])),
@@ -63,9 +63,12 @@ class Sam extends Shell{
 				'createdAt' =>  $collection['createdAt'],
 				'updatedAt' =>  $collection['updatedAt'],
 				'author' =>  $collection['author']['name'],
-				'category.id' =>  $collection['productcategories'][0]['_id'],
-				'category.title' => $collection['productcategories'][0]['title'],
-				'category.permalink' =>  $collection['productcategories'][0]['permalink'],
+				'category.id' =>  $collection['productcategory']['_id'],
+				'category.title' => $collection['productcategory']['title'],
+				'category.permalink' =>  $collection['productcategory']['permalink'],
+				'topic.id' =>  $collection['producttopic']['_id'],
+				'topic.title' => $collection['producttopic']['title'],
+				'topic.permalink' =>  $collection['producttopic']['permalink'],
 				'item_count' =>  count($collection['productitems']),
 			];
 
@@ -85,7 +88,7 @@ class Sam extends Shell{
 			foreach ($collection['productitems'] as $item){
 				$item['collection_id'] = $collection['id'];
 				$item['slug'] = $this->slug($item['title']);
-				$item['image'] = $item['image']['url'];
+				$item['image'] = $item['image'];
 				$this->setVars($item);
 				$this->tag = $item['title'];
 				$this->generateFile($this->getFileName($collection['id'].'-'.$item['title']));
