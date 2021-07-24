@@ -1,0 +1,28 @@
+{% include head.html %}
+{% include amp/css.html %}
+{% include head_script.html %}
+
+  </head>
+  <body>
+ {% include navbar.html %}
+
+    <main id="content" role="main" class="">
+      <article>
+        <header>
+          <h1 class="mb1 px3">{% if page.h1-title %}{{ page.h1-title }}{% else %}{{ page.title }}{% endif %}</h1>
+
+        </header>
+
+
+        <div class="container">
+        {{ content }}
+
+        </div><!-- end container -->
+
+
+      </article>
+    </main>
+
+    {% include footer.html %}
+  </body>
+</html>
