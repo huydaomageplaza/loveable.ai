@@ -44,39 +44,34 @@ permalink: "/"
 
 
 	        <!-- List products -->
-
 	        <div class="row">
 
 	        {% assign collections = (site.productcollections ) %}
-              {% for item in collections %}
-
-        	<!-- Item -->
-			  <div class="col-lg-4 col-sm-12 ">
-			   	<div class="product-item pb2 m2">
-			   		<a href="{{site.url}}{{ item.permalink }}"><amp-img
-                      src="{{item.image}}"
-                      width="200"
-                      height="133"
-                      layout="responsive"
-                      alt="{{item.title}}"
-                      class=""
-                    ></amp-img>
-				  	<h3 class="ml2 truncate">{{item.title}}</h3>
-				    <p class="m2">
-				    	{{item.description}}
-				    </p>
-				    </a>
-			   	</div>
-			  </div>
-			  <!-- end Item -->
-			  {% endfor %}
-			  
-	        	
-			  
-			  
+          {% for item in collections %}
+          	<!-- Item -->
+    			  <div class="col-lg-4 col-sm-12 ">
+    			   	<div class="product-item pb2 m2">
+    			   		<a href="{{site.url}}{{ item.permalink }}"><amp-img
+                          src="{{item.image}}"
+                          width="200"
+                          height="133"
+                          layout="responsive"
+                          alt="{{item.title}}"
+                          class=""
+                        ></amp-img>
+    				  	<h3 class="ml2 truncate">{{item.title}}</h3>
+    				    <p class="m2">
+    				    	{{item.description}}
+    				    </p>
+    				    </a>
+    			   	</div>
+    			  </div>
+    			  <!-- end Item -->
+  			  {% endfor %}
 
 
-			</div>
+			   </div>
+         <!-- End List products  -->
 
 			</div><!-- end container -->
 

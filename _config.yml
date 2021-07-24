@@ -41,4 +41,10 @@ collections:
     output: true
   productitems:
     output: true
+  productcategories:
+    output: true
+  producttopics:
+    output: true
+  authors:
+    output: true
 

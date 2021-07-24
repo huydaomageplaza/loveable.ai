@@ -21,7 +21,7 @@
           <address class="ampstart-byline clearfix mb4 px3 h5">
             <time class="ampstart-byline-pubdate bold my1"
               datetime="{{ page.updatedAt | date: '%Y-%m-%d' }}">Last Updated on {{ page.updatedAt | date: '%B %d, %Y' }}</time>
-              <span class="right">By <a href="{{ site.url }}/author/{{ page.author_url }}/">{{ page.author }}</a></span>
+              <span class="right">By <a href="{{ site.url }}/author/{{ page.author_key }}/">{{ page.author }}</a></span>
           </address>
           <!-- End byline -->
         
@@ -65,12 +65,14 @@
           <section class="related-articles mt5">
             <h2 class="mb4 mt5 px3">Related Gifts</h2>
 
-        {% assign items = (site.productcollections | where:"category", page.category | limit: 5 | reverse) %}
+        {% assign items = (site.productcollections | where:"topic", page.topic  | reverse) %}
 
-        {% for item in items %}
+        {% for item in items limit:6 %}
           <!-- Start -->
-              <div class="row">
-                <div class="col-sm-12 col-lg-2">
+              <div class="row product-item mb3">
+                
+                <div class="col-sm-12 col-lg-2 ">
+                  <a href="{{site.url}}{{item.permalink}}">
                    <amp-img
                       src="{{item.image}}"
                       width="200"
@@ -79,9 +81,10 @@
                       alt="{{item.title}}"
                       class="mt3"
                     ></amp-img>
+                  </a>
                 </div>
                 <div class="col-sm-12 col-lg-10">
-                  <h3 class="mt4 mb4 px4"><a href="{{item.url}}">{{item.title}}</a></h3>
+                  <a href="{{site.url}}{{item.permalink}}"><h3 class="mt4 mb4 px4">{{item.title}}</h3></a>
                 </div>
               </div>
           <!-- End -->
@@ -94,18 +97,12 @@
           <section>
             <h2 class="mb3 mt4 px3">Categories</h2>
             <ul class="list-reset p0 m0 mb4 px3">
+            {% assign items = (site.productcategories ) %}
+              {% for item in items limit:6 %}
               <li class="mb2">
-                <a href="#" class="text-decoration-none h3">For Mom</a>
+                <a href="{{ item.url }}" class="text-decoration-none h3">{{ item.title }}</a>
               </li>
-              <li class="mb2">
-                <a href="#" class="text-decoration-none h3">For Dad</a>
-              </li>
-              <li class="mb2">
-                <a href="#" class="text-decoration-none h3">For Grandma</a>
-              </li>
-              <li class="mb2">
-                <a href="#" class="text-decoration-none h3">For Grandpa</a>
-              </li>
+              {% endfor %}
             </ul>
         </section>
       </article>

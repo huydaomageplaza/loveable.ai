@@ -22,12 +22,12 @@ class Sam extends Shell{
 		return  date("Y-m-d") .'-' . Sam::slug($name) .'.md';
 	}
 
-	public function appEndpoint(){
-		return $this->_endpoint . '/productcollections';
+	public function getEndpoint($endpoint = ''){
+		return $this->_endpoint . $endpoint;
 	}
 
 	public function getAllProductCollections(){
-		$collections = $this->getContentByCRUL($this->appEndpoint() . '?_limit=500');
+		$collections = $this->getContentByCRUL($this->getEndpoint('/productcollections') . '?_limit=1000');
 
 		// $collections = file_get_contents('../static/sample.json');
 		$collections = json_decode($collections, true);
@@ -43,7 +43,6 @@ class Sam extends Shell{
 			// var_dump($colletions);
 
 			//1. Generate collection
-var_dump($collection);
 			//template
 			$this->templateFile = '_templates/productcollection.html';
 			$this->outputFolder = '../_productcollections';
@@ -63,7 +62,7 @@ var_dump($collection);
 				'createdAt' =>  $collection['createdAt'],
 				'updatedAt' =>  $collection['updatedAt'],
 				'author' =>  $collection['author']['name'],
-				'author_url' =>  $this->slug($collection['author']['name']),
+				'author_key' =>  $collection['author']['key'],
 				'category.id' =>  $collection['productcategory']['_id'],
 				'category.title' => $collection['productcategory']['title'],
 				'category.permalink' =>  $collection['productcategory']['permalink'],
@@ -101,6 +100,101 @@ var_dump($collection);
 
 	}
 
+	public function generateCategories(){
+		$collections = $this->getContentByCRUL($this->getEndpoint('/productcategories') . '?_limit=500');
+		$collections = json_decode($collections, true);
+		if(!count($collections)) {
+			echo "No categories found";
+			return;
+		};
+
+		foreach ($collections as $collection) {
+
+			$this->templateFile = '_templates/productcategories.html';
+			$this->outputFolder = '../_productcategories';
+			$fields = [
+				'id' => $collection['_id'],
+				'title' => trim(strip_tags($collection['title'])),
+				'allow_search_engine' => (string) $collection['allow_search_engine'],
+				'published' =>  (string) $collection['published'],
+				'slug' =>  $this->slug($collection['title']),
+				'content' =>  $collection['content'],
+				'createdAt' =>  $collection['createdAt'],
+				'updatedAt' =>  $collection['updatedAt'],
+				'permalink' =>  $collection['permalink'],
+			];
+
+			$this->setVars($fields);
+			$this->tag = $collection['title'];
+			$this->generateFile($this->getFileName($collection['title']));
+
+		}
+	}
+
+
+	public function generateTopics(){
+		$collections = $this->getContentByCRUL($this->getEndpoint('/producttopics') . '?_limit=500');
+		$collections = json_decode($collections, true);
+		if(!count($collections)) {
+			echo "No topics found";
+			return;
+		};
+
+		foreach ($collections as $collection) {
+
+			$this->templateFile = '_templates/producttopics.html';
+			$this->outputFolder = '../_producttopics';
+			$fields = [
+				'id' => $collection['_id'],
+				'title' => trim(strip_tags($collection['title'])),
+				'allow_search_engine' => (string) $collection['allow_search_engine'],
+				'published' =>  (string) $collection['published'],
+				'slug' =>  $this->slug($collection['title']),
+				'content' =>  $collection['content'],
+				'createdAt' =>  $collection['createdAt'],
+				'updatedAt' =>  $collection['updatedAt'],
+				'permalink' =>  $collection['permalink'],
+			];
+
+			$this->setVars($fields);
+			$this->tag = $collection['title'];
+			$this->generateFile($this->getFileName($collection['title']));
+
+		}
+	}
+
+
+	public function generateAuthors(){
+		$collections = $this->getContentByCRUL($this->getEndpoint('/authors') . '?_limit=500');
+		$collections = json_decode($collections, true);
+		if(!count($collections)) {
+			echo "No topics found";
+			return;
+		};
+
+		foreach ($collections as $collection) {
+
+			$this->templateFile = '_templates/authors.html';
+			$this->outputFolder = '../_authors';
+			$fields = [
+				'id' => $collection['_id'],
+				'title' => trim(strip_tags($collection['name'])),
+				'allow_search_engine' => (string) $collection['allow_search_engine'],
+				'published' =>  (string) $collection['published'],
+				'key' =>  $collection['key'],
+				'content' =>  $collection['content'],
+				'createdAt' =>  $collection['createdAt'],
+				'updatedAt' =>  $collection['updatedAt'],
+				'permalink' =>  '/author/'.$collection['key'] . '/',
+			];
+
+			$this->setVars($fields);
+			$this->tag = $collection['name'];
+			$this->generateFile($this->getFileName($collection['name']));
+
+		}
+	}
+
 	public function getItemHtml($items){
 		$html = 'Item html here';
 		foreach ($items as $item) {
@@ -113,6 +207,9 @@ var_dump($collection);
 
 	public function run($debug = false){
 		$this->generateProductCollection();
+		$this->generateCategories();
+		$this->generateTopics();
+		$this->generateAuthors();
 	}
 
 

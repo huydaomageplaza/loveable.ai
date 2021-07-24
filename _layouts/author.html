@@ -1,0 +1,72 @@
+{% include head.html %}
+{% include amp/css.html %}
+{% include head_script.html %}
+{% include schema-article.html%}
+
+  </head>
+  <body>
+ {% include navbar.html %}
+
+    <main id="content" role="main" class="">
+      <article>
+        <header>
+          <span class="ampstart-subtitle block px3 pt2 mb2">
+            <a href="{{ site.url }}">Home</a> >
+          </span>
+          <h1 class="mb1 px3">{{ page.title }}'s articles</h1>
+
+          <!-- Start byline -->
+          <address class="ampstart-byline clearfix mb4 px3 h5">
+            <time class="ampstart-byline-pubdate bold my1"
+              datetime="{{ page.updatedAt | date: '%Y-%m-%d' }}">Last Updated on {{ page.updatedAt | date: '%B %d, %Y' }}</time>
+          </address>
+          <!-- End byline -->
+        
+
+
+        </header>
+
+
+        <div class="container">
+          <div class="mb4 px3">{{ content | markdown }}</div>
+
+           <!-- List products -->
+          <div class="row">
+          {% assign collections = (site.productcollections | where:"author_key", page.key | reverse ) %}
+          {% for item in collections %}
+            <!-- Item -->
+            <div class="col-lg-4 col-sm-12 ">
+              <div class="product-item pb2 m2">
+                <a href="{{site.url}}{{ item.permalink }}"><amp-img
+                          src="{{item.image}}"
+                          width="200"
+                          height="133"
+                          layout="responsive"
+                          alt="{{item.title}}"
+                          class=""
+                        ></amp-img>
+                <h3 class="ml2 truncate">{{item.title}}</h3>
+                <p class="m2">
+                  {{item.description}}
+                </p>
+                </a>
+              </div>
+            </div>
+            <!-- end Item -->
+          {% endfor %}
+
+
+         </div>
+         <!-- End List products  -->
+
+        </div><!-- end container -->
+
+
+
+
+      </article>
+    </main>
+
+    {% include footer.html %}
+  </body>
+</html>
