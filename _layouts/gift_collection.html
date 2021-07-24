@@ -20,14 +20,14 @@
           <!-- Start byline -->
           <address class="ampstart-byline clearfix mb4 px3 h5">
             <time class="ampstart-byline-pubdate bold my1"
-              datetime="{{ page.date | date: '%Y-%m-%d' }}">Last Updated on {{ page.date | date: '%B %d, %Y' }}</time>
-              <span class="right">By <a href="{{ site.url }}/author/sam.html">Sam Thomas</a></span>
+              datetime="{{ page.updatedAt | date: '%Y-%m-%d' }}">Last Updated on {{ page.updatedAt | date: '%B %d, %Y' }}</time>
+              <span class="right">By <a href="{{ site.url }}/author/{{ page.author_url }}/">{{ page.author }}</a></span>
           </address>
           <!-- End byline -->
         
           <div class="mb4 px3">{{ content | markdown }}</div>
 
-      <h2 class="mb1 px3">Here are {{ page.item_count }} gifts for grandma</h2>
+          <h2 class="mb1 px3">Here are {{ page.item_count }} gifts for grandma</h2>
 
           {% assign items = (site.productitems | where:"collection_id", page.key | reverse) %}
           <!-- TOC -->
@@ -45,7 +45,7 @@
           <amp-img
             src="{{ page.image }}"
             width="900"
-            height="450"
+            height="600"
             layout="responsive"
             alt="{{ page.title }}"
             class="mb4 mt3"

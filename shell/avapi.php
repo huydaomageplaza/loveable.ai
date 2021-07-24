@@ -63,6 +63,7 @@ var_dump($collection);
 				'createdAt' =>  $collection['createdAt'],
 				'updatedAt' =>  $collection['updatedAt'],
 				'author' =>  $collection['author']['name'],
+				'author_url' =>  $this->slug($collection['author']['name']),
 				'category.id' =>  $collection['productcategory']['_id'],
 				'category.title' => $collection['productcategory']['title'],
 				'category.permalink' =>  $collection['productcategory']['permalink'],
