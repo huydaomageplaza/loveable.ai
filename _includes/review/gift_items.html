@@ -5,13 +5,13 @@
 <!-- Start -->
     <div class="product-item-row row mb4" id="{{ item.slug}}">
       <div class="col-sm-12 col-lg-6">
-         <amp-img src="{{ item.product_image }}"
+         <a href="{{item.product_url}}" target="_blank" rel="nofollow"></a><amp-img src="{{ item.product_image }}"
                 width="500"
                 height="333"
                 layout="responsive"
                 alt="{{ item.title }}"
                 class="mt3"
-              ></amp-img>
+              ></amp-img></div>
       </div>
       <div class="col-sm-12  col-lg-6">
       <h3 class="ml2 mt2">{{ forloop.index }}. {{ item.title }}</h3>
