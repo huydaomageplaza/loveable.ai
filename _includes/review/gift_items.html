@@ -19,7 +19,11 @@
            {{ item.content }}
          </p>
          <p class="mb4 px3">
-           <a href="{{item.product_url}}" class="ampstart-btn">Buy now</a>
+          {% if item.vendor %}
+           <a href="{{item.product_url}}" class="ampstart-btn" target="_blank" rel="nofollow">Buy on {{ item.vendor }}</a>
+           {% else %}
+            <a href="{{item.product_url}}" class="ampstart-btn" target="_blank" rel="nofollow">Buy now</a>
+           {% endif %}
          </p>
         
       </div>
