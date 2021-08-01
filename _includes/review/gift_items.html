@@ -3,16 +3,15 @@
 {% for item in items %}
 
 <!-- Start -->
-    <div class="product-item-row row mb4" id="{{ item.slug}}">
-      <div class="col-sm-12 col-lg-6" style="width: 500px">
+    <div class="product-item-row row" id="{{ item.slug}}">
+      <div class="col-sm-12 col-lg-6 mb4 mt4 fixed-container">
          <a href="{{item.product_url}}" target="_blank" rel="nofollow">
           <amp-img 
               src="{{ item.product_image }}"
               srcset="{{ item.srcset }}"
               alt="{{ item.title }}"
-              height="380"
-              layout="fixed-height"
-              class="mb4 mt3"
+              layout="fill"
+              class="contain"
               ></amp-img>
             </a>
       </div>

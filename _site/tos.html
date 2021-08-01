@@ -2560,8 +2560,23 @@ h1+.ampstart-byline time {
 }
 
 amp-img {
-  background-color: grey;
+  background-color: white;
 }
+
+.fixed-container {
+   position: relative;
+   width: 400px;
+   height: 400px;
+ }
+amp-img.contain img {
+    object-fit: contain;
+  }
+amp-img.cover img {
+    object-fit: cover;
+  }
+
+  
+
 
 </style>
 
