@@ -4,13 +4,14 @@
 
 <!-- Start -->
     <div class="product-item-row row mb4" id="{{ item.slug}}">
-      <div class="col-sm-12 col-lg-6">
+      <div class="col-sm-12 col-lg-6" style="width: 500px">
          <a href="{{item.product_url}}" target="_blank" rel="nofollow">
           <amp-img 
               src="{{ item.product_image }}"
               srcset="{{ item.srcset }}"
               alt="{{ item.title }}"
-              layout="flex-item"
+              height="380"
+              layout="fixed-height"
               class="mb4 mt3"
               ></amp-img>
             </a>
