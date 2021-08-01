@@ -3,6 +3,8 @@ if (!defined('MAGE_ROOT')) {
 	define('MAGE_ROOT', getcwd());
 }
 
+error_reporting(0);
+
 
 
 include MAGE_ROOT . '/abstract.php';
