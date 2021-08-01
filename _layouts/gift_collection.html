@@ -44,11 +44,11 @@
 
           <amp-img
             src="{{ page.image }}"
-            width="900"
-            height="600"
-            layout="responsive"
+            srcset="{{ page.srcset }}"
             alt="{{ page.title }}"
             class="mb4 mt3"
+            decoding="async"
+            loading="lazy"
           ></amp-img>
         </header>
 

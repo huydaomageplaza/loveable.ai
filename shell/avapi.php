@@ -10,7 +10,7 @@ include MAGE_ROOT . '/abstract.php';
 class Sam extends Shell{
 	public $tag;
 	public $fileName;
-	public $_endpoint = 'http://avapi.avada.io:1337';
+	public $_endpoint = 'https://loveable.appspot.com';
 
 
 	public function cleanCollectionFolder($folder){
@@ -18,8 +18,8 @@ class Sam extends Shell{
 		//DOTO: Clean up files
 	}
 
-	public function getFileName($name){
-		return  date("Y-m-d") .'-' . Sam::slug($name) .'.md';
+	public function getFileName($name, $date){
+		return  date("Y-m-d", strtotime($date)) .'-' . Sam::slug($name) .'.md';
 	}
 
 	public function getEndpoint($endpoint = ''){
@@ -27,7 +27,7 @@ class Sam extends Shell{
 	}
 
 	public function getAllProductCollections(){
-		$collections = $this->getContentByCRUL($this->getEndpoint('/productcollections') . '?_limit=1000');
+		$collections = $this->getContentByCRUL($this->getEndpoint('/productcollections') . '?_limit=500');
 
 		// $collections = file_get_contents('../static/sample.json');
 		$collections = json_decode($collections, true);
@@ -35,17 +35,25 @@ class Sam extends Shell{
 	}
 
 	public function generateProductCollection(){
+
 		$colletions = $this->getAllProductCollections();
 		
 		if(!count($colletions)) return null;
 
+
+		//0. Clean up folder _productcollections; _productitems
+		$this->cleanUpFolder('../_productcollections');
+		$this->cleanUpFolder('../_productitems');
+
 		foreach ($colletions as $collection) {
-			// var_dump($colletions);
 
 			//1. Generate collection
 			//template
 			$this->templateFile = '_templates/productcollection.html';
 			$this->outputFolder = '../_productcollections';
+
+			if($collection['published'] == false) continue;
+
 			$fields = [
 				'id' => $collection['_id'],
 				'title' => trim(strip_tags($collection['title'])),
@@ -78,7 +86,7 @@ class Sam extends Shell{
  
 			$this->setVars($fields);
 			$this->tag = $collection['title'];
-			$this->generateFile($this->getFileName($collection['title']));
+			$this->generateFile($this->getFileName($collection['title'], $collection['createdAt']));
 
 			// 2. Generate items
 
@@ -88,10 +96,11 @@ class Sam extends Shell{
 			foreach ($collection['productitems'] as $item){
 				$item['collection_id'] = $collection['id'];
 				$item['slug'] = $this->slug($item['title']);
-				$item['image'] = $item['image'];
+				$item['image'] = $item['media']['url'];
+				$item['srcset'] = $this->getSrcSet($item['media']);
 				$this->setVars($item);
 				$this->tag = $item['title'];
-				$this->generateFile($this->getFileName($collection['id'].'-'.$item['title']));
+				$this->generateFile($this->getFileName($collection['id'].'-'.$item['title'], $item['createdAt']));
 
 			}
 
@@ -100,13 +109,37 @@ class Sam extends Shell{
 
 	}
 
+	public function getSrcSet($media){
+		$set = '';
+		$i = 1;
+		foreach ($media['formats'] as $_format) {
+
+
+			if($i == count($media['formats'])){ //last one
+					$set .= $_format['url'] . ' ' . $_format['width'] . 'w';	
+			} else{//next
+				$set .= $_format['url'] . ' ' . $_format['width'] . 'w, ';
+			}
+			$i++;
+		}
+
+		return $set;
+	}
+
 	public function generateCategories(){
+
+		
+
 		$collections = $this->getContentByCRUL($this->getEndpoint('/productcategories') . '?_limit=500');
 		$collections = json_decode($collections, true);
 		if(!count($collections)) {
 			echo "No categories found";
 			return;
 		};
+
+
+		//0. Clean up folder _productcollections
+		$this->cleanUpFolder('../_productcategories');
 
 		foreach ($collections as $collection) {
 
@@ -126,19 +159,26 @@ class Sam extends Shell{
 
 			$this->setVars($fields);
 			$this->tag = $collection['title'];
-			$this->generateFile($this->getFileName($collection['title']));
+			$this->generateFile($this->getFileName($collection['title'], $collection['createdAt']));
 
 		}
 	}
 
 
 	public function generateTopics(){
+
+
 		$collections = $this->getContentByCRUL($this->getEndpoint('/producttopics') . '?_limit=500');
 		$collections = json_decode($collections, true);
 		if(!count($collections)) {
 			echo "No topics found";
 			return;
 		};
+
+
+		//0. Clean up folder _productcollections
+		$this->cleanUpFolder('../_producttopics');
+
 
 		foreach ($collections as $collection) {
 
@@ -158,19 +198,25 @@ class Sam extends Shell{
 
 			$this->setVars($fields);
 			$this->tag = $collection['title'];
-			$this->generateFile($this->getFileName($collection['title']));
+			$this->generateFile($this->getFileName($collection['title'], $collection['createdAt']));
 
 		}
 	}
 
 
 	public function generateAuthors(){
+
+		
+
 		$collections = $this->getContentByCRUL($this->getEndpoint('/authors') . '?_limit=500');
 		$collections = json_decode($collections, true);
 		if(!count($collections)) {
 			echo "No topics found";
 			return;
 		};
+
+		//0. Clean up folder _productcollections
+		$this->cleanUpFolder('../_authors');
 
 		foreach ($collections as $collection) {
 
@@ -190,7 +236,7 @@ class Sam extends Shell{
 
 			$this->setVars($fields);
 			$this->tag = $collection['name'];
-			$this->generateFile($this->getFileName($collection['name']));
+			$this->generateFile($this->getFileName($collection['name'], $collection['createdAt']));
 
 		}
 	}
