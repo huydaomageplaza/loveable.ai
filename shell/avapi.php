@@ -26,8 +26,13 @@ class Sam extends Shell{
 		return $this->_endpoint . $endpoint;
 	}
 
-	public function getAllProductCollections(){
-		$collections = $this->getContentByCRUL($this->getEndpoint('/productcollections') . '?_limit=500');
+	public function getAllProductCollections($start = 0, $limit = 500){
+		$collections = $this->getContentByCRUL(
+			$this->getEndpoint('/productcollections') . 
+			'?_limit=' . $limit . 
+			'&_start=' . $start . 
+			'&_published=true'
+		);
 
 		// $collections = file_get_contents('../static/sample.json');
 		$collections = json_decode($collections, true);
@@ -36,7 +41,7 @@ class Sam extends Shell{
 
 	public function generateProductCollection(){
 
-		$colletions = $this->getAllProductCollections();
+		$colletions = $this->getAllProductCollections(0, 500);
 		
 		if(!count($colletions)) return null;
 
@@ -52,7 +57,7 @@ class Sam extends Shell{
 			$this->templateFile = '_templates/productcollection.html';
 			$this->outputFolder = '../_productcollections';
 
-			if($collection['published'] == false) continue;
+			// if($collection['published'] == false) continue;
 
 			$fields = [
 				'id' => $collection['_id'],
@@ -60,7 +65,8 @@ class Sam extends Shell{
 				'allow_search_engine' => (string) $collection['allow_search_engine'],
 				'published' =>  (string) $collection['published'],
 				'sort_order' =>  $collection['sort_order'],
-				'image' =>  $collection['image'],
+				'image' =>  $collection['media']['url'],
+				'srcset' =>  $this->getSrcSet($collection['media']),
 				'permalink' =>  $collection['permalink'],
 				'description' =>  trim(strip_tags($collection['description'])),
 				'meta_title' =>  trim(strip_tags($collection['meta_title'])),
@@ -79,6 +85,7 @@ class Sam extends Shell{
 				'topic.permalink' =>  $collection['producttopic']['permalink'],
 				'item_count' =>  count($collection['productitems']),
 			];
+
 
 			//Generate Items HTML
 			// $fields ['items_html'] = $this->getItemHtml($collection['productitems']);

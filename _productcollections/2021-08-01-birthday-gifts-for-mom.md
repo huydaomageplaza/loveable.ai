@@ -6,7 +6,7 @@ meta-description:
 h1-title: 
 key: "6106bacea369db000a60b029"
 permalink: "/birthday-gifts-for-mom/"
-image: ""
+image: "https://storage.googleapis.com/loveable.appspot.com/Cnr_Yqm_L_3501e91f3b/Cnr_Yqm_L_3501e91f3b.png"
 category: "6106c30dd45e79000b56eeee"
 category_title: "Gifts"
 category_permalink: "/gifts/"
